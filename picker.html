@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sampling Variability</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="layout">
+    <aside class="controls">
+      <div class="card">
+        <h3>Sample</h3>
+        <label class="field">Sample size n
+          <select id="nSelect"></select>
+        </label>
+        <label class="check"><input type="checkbox" id="replToggle"> Sample with replacement</label>
+        <label class="field">Animation
+          <select id="speedSelect">
+            <option value="slow">Slow</option>
+            <option value="normal">Normal</option>
+            <option value="fast">Fast</option>
+            <option value="instant">Off</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="card">
+        <h3>Draw</h3>
+        <div class="btn-grid">
+          <button type="button" class="primary wide" id="btnDraw1">Draw 1 sample</button>
+          <button type="button" id="btnDraw10">Draw 10</button>
+          <button type="button" id="btnDraw100">Draw 100</button>
+          <button type="button" class="wide" id="btnReset">Reset</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Every possible sample</h3>
+        <button type="button" id="btnExact" style="width:100%">Show exact sampling distribution</button>
+        <p class="note">With only 30 men, we can list every possible sample instead of simulating.</p>
+      </div>
+
+      <div class="card hide-present">
+        <h3>Random seed</h3>
+        <input type="number" id="seedInput" min="1" step="1">
+        <p class="note">Same seed + same clicks = same samples, so a take can be re-recorded identically.</p>
+      </div>
+
+      <div class="card keys hide-present">
+        <kbd>Space</kbd> draw 1 · <kbd>T</kbd> draw 10 · <kbd>H</kbd> draw 100 ·
+        <kbd>R</kbd> reset · <kbd>E</kbd> exact distribution · <kbd>F</kbd> presenter mode
+      </div>
+    </aside>
+
+    <section class="panels">
+      <div class="panel">
+        <div class="panel-head">
+          <span class="chip pop">Population</span>
+          <h2>30 men and their heights (inches)</h2>
+          <span class="meta" id="popMeta"></span>
+        </div>
+        <div class="tokens" id="tokens"></div>
+        <div class="sample-line" id="sampleLine"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <span class="chip stat">Sample means</span>
+          <h2>Individual heights vs. sample means</h2>
+          <span class="meta" id="lineMeta"></span>
+        </div>
+        <canvas id="lineCanvas"></canvas>
+      </div>
+
+      <div class="panel" id="exactPanel" hidden>
+        <div class="panel-head">
+          <span class="chip theory">Exact</span>
+          <h2 id="exactTitle">Every possible sample</h2>
+          <span class="meta" id="exactMeta"></span>
+        </div>
+        <canvas id="exactCanvas"></canvas>
+        <p class="note" id="exactNote"></p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><h2>Summary</h2></div>
+        <div id="readout"></div>
+      </div>
+    </section>
+  </main>
+  <script type="module">
+    import { startPicker } from './js/picker-app.js';
+    startPicker();
+  </script>
+</body>
+</html>

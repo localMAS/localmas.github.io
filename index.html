@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sampling Lab</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="home">
+    <h1>Sampling Lab</h1>
+    <p class="lede">
+      Interactive tools for sampling variability, sampling distributions, the Central Limit Theorem,
+      and the sampling distribution of a sample proportion. Every tool uses the same three colors:
+      <strong style="color:var(--pop)">population</strong>,
+      <strong style="color:var(--sample)">one sample</strong>, and
+      <strong style="color:var(--stat)">the sampling distribution</strong> (many samples).
+      Keep those three apart and most of this unit falls into place.
+    </p>
+
+    <div class="tool-grid">
+      <a class="tool-card" href="picker.html">
+        <span class="num">Tool 1</span>
+        <h2>Sampling variability</h2>
+        <p>Draw 5 of 30 men at random and watch x̄ change from sample to sample. Then list every possible sample.</p>
+      </a>
+      <a class="tool-card" href="sampling.html">
+        <span class="num">Tool 2</span>
+        <h2>Sampling distributions &amp; CLT</h2>
+        <p>Build the sampling distribution of x̄ one sample at a time, from normal and very non-normal populations.</p>
+      </a>
+      <a class="tool-card" href="probability.html">
+        <span class="num">Tool 3</span>
+        <h2>Probabilities with z</h2>
+        <p>Standardize x̄ or p̂, find probabilities, and check the answer by simulating real samples.</p>
+      </a>
+      <a class="tool-card" href="proportion.html">
+        <span class="num">Tool 4</span>
+        <h2>Sample proportions</h2>
+        <p>Draw beads from an urn and see when p̂ is (and isn’t) approximately normal.</p>
+      </a>
+    </div>
+
+    <section class="recipes">
+      <p class="note">Each link below opens a tool already set up for that step of the lecture. Every setup is stored in the URL, so “Copy link” on any page gives you a link that reproduces it.</p>
+
+      <h2>Lecture 1: A statistic varies from sample to sample</h2>
+      <ol>
+        <li><a href="picker.html?n=5">Draw samples of 5 from 30 men</a>.
+          <span class="why">Draw one at a time on Slow. Each x̄ misses μ by a different amount. That variability is the subject of the unit.</span></li>
+        <li><a href="picker.html?n=5&speed=fast">Draw 100 samples</a> (press <kbd>H</kbd>).
+          <span class="why">Compare the two rows: the means cluster much more tightly than the individual heights.</span></li>
+        <li><a href="picker.html?n=5&exact=1">Show all 142,506 possible samples</a>.
+          <span class="why">This is the exact sampling distribution, with no simulation involved. Its mean is exactly μ.</span></li>
+      </ol>
+
+      <h2>Lecture 2: The sampling distribution of x̄</h2>
+      <ol>
+        <li><a href="sampling.html?pop=heights&n=1">n = 1</a>.
+          <span class="why">With samples of one, the sampling distribution is just the population.</span></li>
+        <li><a href="sampling.html?pop=heights&n=4">n = 4</a>, then <a href="sampling.html?pop=heights&n=16">n = 16</a>, then <a href="sampling.html?pop=heights&n=64">n = 64</a>.
+          <span class="why">The x-axis stays fixed, so the narrowing is visible. Each time n is quadrupled, the SD is halved: σ/√n.</span></li>
+        <li><a href="sampling.html?pop=heights&compare=1&cmp=4,16,64&overlay=1">Compare 4, 16, 64 side by side</a>.</li>
+        <li><a href="sampling.html?pop=heights&n=2&overlay=1">Normal population ⇒ x̄ is normal even for n = 2</a>.</li>
+        <li><a href="sampling.html?pop=heights&n=10&stat=max">Contrast: the sample <em>maximum</em></a>.
+          <span class="why">Its average misses the population max, so “μ<sub>x̄</sub> = μ” is a special property of the mean, not something every statistic has.</span></li>
+      </ol>
+
+      <h2>Lecture 3: The Central Limit Theorem</h2>
+      <ol>
+        <li><a href="sampling.html?pop=die&n=1">One die</a>, <a href="sampling.html?pop=die&n=2">two dice</a>, <a href="sampling.html?pop=die&n=5&overlay=1">five dice</a>.
+          <span class="why">The distribution goes from flat to a triangle to a bell.</span></li>
+        <li><a href="sampling.html?pop=wait&compare=1&cmp=2,5,30&overlay=1">Skewed waiting times: n = 2, 5, 30</a>.</li>
+        <li><a href="sampling.html?pop=eruptions&compare=1&cmp=1,4,30&overlay=1">Bimodal geyser eruptions</a>.
+          <span class="why">Two humps still turn into one bell.</span></li>
+        <li><a href="sampling.html?pop=wait&n=500">The data do <em>not</em> become normal</a>.
+          <span class="why">A sample of 500 waiting times is still skewed, because it looks like the population. Only the distribution of x̄ becomes normal.</span></li>
+        <li><a href="sampling.html?pop=income&n=30&overlay=1&zoom=1">Income, n = 30</a> and
+          <a href="sampling.html?pop=scratch&n=30&overlay=1&zoom=1">scratch-off tickets, n = 30</a>.
+          <span class="why">“n ≥ 30” is a rule of thumb. The more skewed the population, the larger n has to be.</span></li>
+      </ol>
+
+      <h2>Lecture 4: Standardizing x̄</h2>
+      <ol>
+        <li><a href="probability.html?n=9&a=71">P(one man &gt; 71 in) vs. P(average of 9 men &gt; 71 in)</a>.
+          <span class="why">Use the same cut-off for both. The probability is about 1 in 4 for one man and about 1 in 40 for the average of 9.</span></li>
+        <li><a href="probability.html?pop=wait&n=5&a=8">Skewed population, small n</a>.
+          <span class="why">The z answer and the simulation disagree. Raise n and they converge.</span></li>
+        <li><a href="probability.html?pop=custom&mu=100&sigma=15&n=25&event=between&a=97&b=103">Any textbook problem</a>: enter μ, σ, n, and the cut-offs.</li>
+      </ol>
+
+      <h2>Lecture 5: The sampling distribution of p̂</h2>
+      <ol>
+        <li><a href="proportion.html?preset=coin&p=0.5&n=25&overlay=1">Coin flips, n = 25</a>.
+          <span class="why">p̂ is the mean of 0/1 data. That’s why σ<sub>p̂</sub> = √(p(1−p)/n) is just σ/√n with σ = √(p(1−p)).</span></li>
+        <li><a href="proportion.html?preset=custom&p=0.3&compare=1&cmp=10,50,200&overlay=1">Same shrinking story: n = 10, 50, 200</a>.</li>
+        <li><a href="proportion.html?preset=defect&p=0.02&n=50&overlay=1&zoom=1">p = 0.02, n = 50</a>, then
+          <a href="proportion.html?preset=defect&p=0.02&n=1000&overlay=1&zoom=1">n = 1,000</a>.
+          <span class="why">np &lt; 10 gives a skewed, gappy distribution. With enough expected successes it becomes normal.</span></li>
+        <li><a href="probability.html?stat=prop&p=0.52&n=400&a=0.5&event=lt">Poll question</a>:
+          <span class="why">if 52% of voters support a measure, how often does a poll of 400 show a minority?</span></li>
+      </ol>
+
+      <h2>For recording</h2>
+      <ul>
+        <li><strong>Presenter mode</strong> (<kbd>F</kbd>): larger text and plots, and the seed and shortcut boxes are hidden.</li>
+        <li><strong>Seeds</strong>: the same seed and the same clicks give the same samples, so a flubbed take can be redone identically.</li>
+        <li><strong>Keyboard</strong>: <kbd>Space</kbd> draws one sample, <kbd>T</kbd> draws 10, <kbd>K</kbd> draws 1,000, <kbd>P</kbd> plays/pauses, <kbd>R</kbd> resets, <kbd>O</kbd> toggles the normal curve, <kbd>Z</kbd> zooms, <kbd>C</kbd> compares.</li>
+        <li><strong>Animation speed</strong>: use Slow for the first sample or two, then switch to Fast or draw 1,000 at once.</li>
+      </ul>
+      <p class="note" style="margin-top:20px">All data are simulated. Populations are fixed lists of 10,000 values, so μ and σ are exact properties of what’s on screen.</p>
+    </section>
+  </main>
+  <script type="module">
+    import { initChrome } from './js/ui.js';
+    initChrome('home', null);
+  </script>
+</body>
+</html>
