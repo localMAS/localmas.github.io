@@ -12,21 +12,6 @@ HTML, CSS, and JavaScript modules: no build step, no dependencies, and no server
 | `probability.html` | z for one individual vs. x̄ (or p̂), shaded areas, and a simulation check; click or drag on a plot to move the cut-off |
 | `proportion.html` | Bead urn with proportion p; sampling distribution of p̂; np ≥ 10 checks |
 
-## Publish on GitHub Pages
-
-1. Create a repository and push these files to the `main` branch, keeping `index.html` at the top level.
-2. In the repository, go to **Settings → Pages → Build and deployment**, choose **Deploy from a branch**, then select `main` and `/ (root)`.
-3. The site appears at `https://<username>.github.io/<repo>/` after about a minute.
-
-## Run locally
-
-The pages use ES modules, which browsers won't load from `file://`. Serve the folder instead:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then open http://localhost:8000.
 
 ## Customizing
 
